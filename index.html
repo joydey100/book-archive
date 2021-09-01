@@ -20,9 +20,12 @@
   <body>
     <!-- Header Start -->
     <header>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- Navigation Part -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
         <div class="container">
-          <a class="navbar-brand" href="#">Book Library</a>
+          <a class="navbar-brand" href="#">
+            <i class="fas fa-book-reader text-green me-2"></i> Book Library</a
+          >
           <button
             class="navbar-toggler"
             type="button"
@@ -40,19 +43,91 @@
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Books</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
               </li>
             </ul>
           </div>
         </div>
       </nav>
+
+      <!-- Banner Section -->
+      <section class="banner-section container">
+        <div class="row g-4 d-flex align-items-center">
+          <div class="col-md-6">
+            <h2 class="title mb-4">
+              <span class="text-green"> Read </span> &
+              <span class="text-green"> Learn </span> for
+              <span class="d-block"> Develop Your Skill </span>
+            </h2>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control border border-1 border-secondary"
+                placeholder="Search Book e.g. Eloquent JavaScript"
+              />
+              <button
+                class="btn bg-green text-white"
+                type="button"
+                id="search-btn"
+              >
+                Search
+              </button>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <img
+              src="images/banner-book.svg"
+              alt="banner-book"
+              class="banner-img"
+            />
+          </div>
+        </div>
+      </section>
     </header>
     <!-- Header End -->
+
+    <!-- Main Start -->
+    <main class="container py-3">
+      <section class="books-container">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card h-100">
+              <img
+                src="https://images.pexels.com/photos/3457273/pexels-photo-3457273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
+                class="card-img-top"
+                alt="books"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">
+                  This is a longer card with supporting text below as a natural
+                  lead-in to additional content. This content is a little bit
+                  longer.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Main End -->
 
     <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Font Awesome JS -->
+    <script
+      src="https://kit.fontawesome.com/8184740b0e.js"
       crossorigin="anonymous"
     ></script>
 
