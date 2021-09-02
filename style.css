@@ -1,5 +1,6 @@
 /*  Google Font | Poppins */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+
 /* Global CSS */
 body {
   font-family: "Poppins", sans-serif;
@@ -15,6 +16,7 @@ img {
 .bg-green {
   background-color: #407bff;
 }
+
 /* ===== Header Section ===== */
 .navbar-brand {
   font-weight: 500;
@@ -34,19 +36,20 @@ img {
 #error-msg {
   font-weight: 500;
 }
+
 /* ===== Main Section ===== */
 .card-title {
   font-size: 20px;
+  font-weight: 600;
 }
 .book-img {
   height: 450px;
 }
-#search-heading,
 #show-result {
   font-weight: 600;
 }
 #loading {
-  width: 50%;
+  width: 42%;
 }
 
 /*  ===== Media Queries ======== */

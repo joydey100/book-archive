@@ -1,4 +1,4 @@
-//  Initialize Elements
+/* ========== Initialize all the Elements ========== */
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const errorMessage = document.getElementById("error-msg");
@@ -6,7 +6,7 @@ const bookContainer = document.getElementById("book-container");
 const showResult = document.getElementById("show-result");
 const loading = document.getElementById("loading");
 
-// Function for Fetching Data
+/* ========== Function for Fetching Data ========== */
 const fetchData = (value) => {
   const url = `https://openlibrary.org/search.json?q=${value}`;
 
@@ -17,26 +17,32 @@ const fetchData = (value) => {
     .catch((error) => alert(error));
 };
 
-// Function for Showing Data in Website or Update data in UI
+/*  ========== Function for Showing Data in Website or Update data in UI ========== */
 const showData = (data, value) => {
   const mainData = data.docs;
   const bookFound = data.numFound;
 
+  // Condition Checking
   if (mainData.length === 0) {
     loading.classList.remove("d-block");
     loading.classList.add("d-none");
-    errorMessage.textContent = `There is no Book Name of - "${value}"`;
+    errorMessage.textContent = `Sorry! There is no book named - "${value}"`;
     return;
   }
 
-  window.scrollTo(0, 40);
+  // Showing Result Text and Stop Loading
   showResult.innerText = `Showing ${mainData.length} Books from ${bookFound} Books`;
-
   loading.classList.remove("d-block");
   loading.classList.add("d-none");
 
+  // Passing mainData to UpdateData Function
+  updateData(mainData);
+};
+
+/*  ========== Update Data ========== */
+const updateData = (mainDataArr) => {
   //   Iterating mainData with foreach loop and append data in container
-  mainData.forEach((book) => {
+  mainDataArr.forEach((book) => {
     const {
       title,
       cover_i,
@@ -79,21 +85,25 @@ const showData = (data, value) => {
   });
 };
 
-// Search Button Add Event Listener
+/*  ========== Search Button Add Event Listener  ==========*/
 searchBtn.addEventListener("click", () => {
   // Getting input value
   const value = searchInput.value;
 
-  //   Condition Checking
+  // Clear Elements
+  errorMessage.textContent = "";
+  showResult.textContent = "";
+  bookContainer.textContent = "";
+
+  //  Condition Checking
   if (value === "") {
     errorMessage.textContent = "You have to give the name or type of a Book";
   } else {
-    // Clear some element and  add loading
-    errorMessage.textContent = "";
-    showResult.textContent = "";
-    bookContainer.textContent = "";
+    // Add loading
     loading.classList.add("d-block");
     loading.classList.remove("d-none");
+
+    // Passing Value
     fetchData(value);
   }
 
