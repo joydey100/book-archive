@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Library | Increase Your Knowledge</title>
+    <title>Book Archive | Increase Your Knowledge</title>
 
     <!-- Bootstrap CSS -->
     <link
@@ -24,7 +24,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
         <div class="container">
           <a class="navbar-brand" href="#">
-            <i class="fas fa-book-reader text-blue me-2"></i> Book Library</a
+            <i class="fas fa-book-reader text-blue me-2"></i> Book Archive</a
           >
           <button
             class="navbar-toggler"
@@ -97,7 +97,13 @@
     <!-- Main Start -->
     <main class="container py-3">
       <section class="books-container-section mt-3" id="book-section">
-        <p id="show-result" class="mb-5 text-blue text-center"></p>
+        <img
+          src="images/loading.gif"
+          alt="loading-Books"
+          id="loading"
+          class="mx-auto d-none"
+        />
+        <p id="show-result" class="mb-5 text-secondary text-center"></p>
         <div class="row row-cols-1 row-cols-md-3 g-4" id="book-container"></div>
       </section>
     </main>

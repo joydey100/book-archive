@@ -45,3 +45,13 @@ img {
 #show-result {
   font-weight: 600;
 }
+#loading {
+  width: 50%;
+}
+
+/*  ===== Media Queries ======== */
+@media only screen and (max-width: 767px) {
+  .book-img {
+    height: auto;
+  }
+}

@@ -4,10 +4,11 @@ const searchBtn = document.getElementById("search-btn");
 const errorMessage = document.getElementById("error-msg");
 const bookContainer = document.getElementById("book-container");
 const showResult = document.getElementById("show-result");
+const loading = document.getElementById("loading");
 
 // Function for Fetching Data
 const fetchData = (value) => {
-  const url = `http://openlibrary.org/search.json?q=${value}`;
+  const url = `https://openlibrary.org/search.json?q=${value}`;
 
   //   Fetching Data
   fetch(url)
@@ -21,17 +22,21 @@ const showData = (data, value) => {
   const mainData = data.docs;
   const bookFound = data.numFound;
 
-  if (mainData.length == 0) {
-    errorMessage.textContent = `There is no Book Name of - ${value}`;
+  if (mainData.length === 0) {
+    loading.classList.remove("d-block");
+    loading.classList.add("d-none");
+    errorMessage.textContent = `There is no Book Name of - "${value}"`;
     return;
   }
 
+  window.scrollTo(0, 40);
   showResult.innerText = `Showing ${mainData.length} Books from ${bookFound} Books`;
+
+  loading.classList.remove("d-block");
+  loading.classList.add("d-none");
 
   //   Iterating mainData with foreach loop and append data in container
   mainData.forEach((book) => {
-    console.log(book);
-
     const {
       title,
       cover_i,
@@ -50,12 +55,9 @@ const showData = (data, value) => {
     const publishDate = Array.isArray(publish_date) ? publish_date[0] : "";
     const firstPublish = first_publish_year || "";
 
-    // Create Elements
+    // Create Elements and append to Container
     const div = document.createElement("div");
-
-    // Class Add
     div.classList.add("col");
-
     div.innerHTML = `
     <div class="card h-100 shadow-lg">
               <img
@@ -63,13 +65,12 @@ const showData = (data, value) => {
                 class="card-img-top book-img"
                 alt="books"
               />
-              <div class="card-body">
+              <div class="card-body p-4">
                 <h4 class="card-title my-3">Name: ${title}</h4>
                 <p> Author:  ${author}  </p>
                 <p> Publisher: ${publisherName}  </p>
                 <p> First Publish Year: ${firstPublish}   </p>
                 <p> Last Publish Date : ${publishDate}   </p>
-              
               </div>
             </div>
     `;
@@ -85,15 +86,17 @@ searchBtn.addEventListener("click", () => {
 
   //   Condition Checking
   if (value === "") {
-    errorMessage.textContent = "You have to give a Book Name";
+    errorMessage.textContent = "You have to give the name or type of a Book";
   } else {
-    // Clear Book Container
+    // Clear some element and  add loading
     errorMessage.textContent = "";
-    bookContainer.textContent = "";
     showResult.textContent = "";
+    bookContainer.textContent = "";
+    loading.classList.add("d-block");
+    loading.classList.remove("d-none");
     fetchData(value);
   }
 
-  //   Clear Value
+  //   Clear Input Value
   searchInput.value = "";
 });
