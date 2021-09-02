@@ -24,7 +24,7 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light py-3">
         <div class="container">
           <a class="navbar-brand" href="#">
-            <i class="fas fa-book-reader text-green me-2"></i> Book Library</a
+            <i class="fas fa-book-reader text-blue me-2"></i> Book Library</a
           >
           <button
             class="navbar-toggler"
@@ -61,15 +61,16 @@
         <div class="row g-4 d-flex align-items-center">
           <div class="col-md-6">
             <h2 class="title mb-4">
-              <span class="text-green"> Read </span> &
-              <span class="text-green"> Learn </span> for
-              <span class="d-block"> Develop Your Skill </span>
+              <span class="text-blue"> Read </span> &
+              <span class="text-blue"> Learn </span> for
+              <span class="d-block"> Increase Your Knowledge </span>
             </h2>
             <div class="input-group mb-3">
               <input
                 type="text"
                 class="form-control border border-1 border-secondary"
-                placeholder="Search Book e.g. Eloquent JavaScript"
+                placeholder="Search Book e.g. JavaScript"
+                id="search-input"
               />
               <button
                 class="btn bg-green text-white"
@@ -79,6 +80,7 @@
                 Search
               </button>
             </div>
+            <p id="error-msg" class="text-danger"></p>
           </div>
           <div class="col-md-6">
             <img
@@ -94,26 +96,9 @@
 
     <!-- Main Start -->
     <main class="container py-3">
-      <section class="books-container">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          <div class="col">
-            <div class="card h-100">
-              <img
-                src="https://images.pexels.com/photos/3457273/pexels-photo-3457273.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                class="card-img-top"
-                alt="books"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">
-                  This is a longer card with supporting text below as a natural
-                  lead-in to additional content. This content is a little bit
-                  longer.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
+      <section class="books-container-section mt-3" id="book-section">
+        <p id="show-result" class="mb-5 text-blue text-center"></p>
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="book-container"></div>
       </section>
     </main>
     <!-- Main End -->

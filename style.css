@@ -9,11 +9,11 @@ img {
   display: block;
   object-fit: cover;
 }
-.text-green {
-  color: #31bd59;
+.text-blue {
+  color: #407bff;
 }
 .bg-green {
-  background-color: #31bd59;
+  background-color: #407bff;
 }
 /* ===== Header Section ===== */
 .navbar-brand {
@@ -24,12 +24,24 @@ img {
   padding: 20px 0;
 }
 .title {
-  font-size: 45px;
+  font-size: 42px;
   font-weight: 600;
 }
 .banner-img {
   width: 90%;
   margin: auto;
 }
-
+#error-msg {
+  font-weight: 500;
+}
 /* ===== Main Section ===== */
+.card-title {
+  font-size: 20px;
+}
+.book-img {
+  height: 450px;
+}
+#search-heading,
+#show-result {
+  font-weight: 600;
+}
